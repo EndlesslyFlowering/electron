@@ -1,0 +1,22 @@
+diff --git a/ui/gfx/color_transform.cc b/ui/gfx/color_transform.cc
+index 55168e0bff..1b83648b66 100644
+--- a/ui/gfx/color_transform.cc
++++ b/ui/gfx/color_transform.cc
+@@ -691,7 +691,7 @@ void ColorTransformInternal::AppendColorSpaceToColorSpaceTransform(
+       // Convert from linear nits-relative space (where 1.0 is 1,000 nits) to
+       // SDR-relative space (where 1.0 is SDR white).
+       steps_.push_back(std::make_unique<ColorTransformSrcNitsToSdrRelative>(
+-          kHLGRefMaxLumNits, /*use_src_sdr_white=*/true));
++          kHLGRefMaxLumNits, /*use_src_sdr_white=*/false));
+ 
+       // If tone mapping is requested, tone map down to the available
+       // headroom.
+@@ -709,7 +709,7 @@ void ColorTransformInternal::AppendColorSpaceToColorSpaceTransform(
+       // Convert from linear nits-relative space (where 1.0 is 10,000 nits) to
+       // SDR-relative space (where 1.0 is SDR white).
+       steps_.push_back(std::make_unique<ColorTransformSrcNitsToSdrRelative>(
+-          kPQRefMaxLumNits, /*use_src_sdr_white=*/true));
++          kPQRefMaxLumNits, /*use_src_sdr_white=*/false));
+ 
+       if (options.tone_map_pq_and_hlg_to_dst) {
+         // Convert from XYZ to Rec2020 primaries.
