@@ -19,7 +19,7 @@ env:
 jobs:
   lint:
     name: Lint
-    runs-on: electron-arc-linux-amd64-4core
+    runs-on: ubuntu-latest
     timeout-minutes: 20
     container: ${{ fromJSON(inputs.container) }}
     steps:
