@@ -66,8 +66,6 @@ jobs:
     - name: Check disk space after freeing up space
       if: ${{ inputs.target-platform == 'macos' }}
       run: df -h
-    - name: Set Chromium Git Helper
-      uses: ./src/electron/.github/actions/set-chromium-git-helper
     - name: Install Build Tools
       uses: ./src/electron/.github/actions/install-build-tools
     - name: Enable windows toolchain
